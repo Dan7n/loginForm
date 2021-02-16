@@ -12,7 +12,6 @@ function sendMail(userEmail, token) {
     },
   };
 
-  console.log(process.env.FROM_EMAIL);
   const transport = nodemailer.createTransport(sgTransport(options));
 
   const msg = {
@@ -24,9 +23,11 @@ function sendMail(userEmail, token) {
     <a href="http://localhost:${process.env.PORT}/${token}">Click me!</a>`,
   };
 
-  transport.sendMail(msg, function (err, data) {
+  transport.sendMail(msg, function (err, successMsg) {
     if (err) console.log(err);
-    if (data) console.log(data);
+    else {
+      console.log(successMsg);
+    }
   });
 }
 
