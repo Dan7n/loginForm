@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./../css/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-container">
+        <form action="/login" method="POST">
+            <h1>Login to your account</h1>
+
+                <label for="email">
+                    <input type="text" name="email" required autocomplete="off">
+                    <span class="placeholder">Email address</span>
+                </label>    
+                <label for="password">
+                    <input type="password" name="password" required>
+                    <span class="placeholder">Password</span>
+                </label>   
+                <div>
+                    <a href="/reset-password">Forgot your password?</a>
+                </div> 
+            <div>
+                <button type="submit">Register</button>
+            </div>
+        </form>
+
+        <% if (error) { %>
+            <p class="error-msg"><%= error %> </p>
+       <% } %> 
+    
+    </div>
+</body>
+</html>
