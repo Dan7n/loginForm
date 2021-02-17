@@ -15,6 +15,7 @@ userRegistration.post("/", async (req, res) => {
       email: req.body.email,
       password: hashedPassword,
     }).save();
+    console.log(newUser);
   } catch (err) {
     if (err) {
       console.log(err);

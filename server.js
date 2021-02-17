@@ -20,7 +20,7 @@ app.set("view engine", "ejs");
 app.use(cookieParser()); //used to read and handle cookies
 
 //express routers
-const userRegistration = require("./routes/userRegistration.js");
+const userRegistration = require("./routes/userRegistration");
 app.use("/register", userRegistration);
 
 const contentRouter = require("./routes/contentRouter");
@@ -28,6 +28,9 @@ app.use("/content", contentRouter);
 
 const passwordResetRouter = require("./routes/passwordReset");
 app.use("/reset-password", passwordResetRouter);
+
+const newPasswordRouter = require("./routes/newPassword");
+app.use("/change-password", newPasswordRouter);
 
 //express routers
 const login = require("./routes/login.js");

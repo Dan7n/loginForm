@@ -22,11 +22,12 @@ passwordResetRouter.post("/", async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(passwordResetToken, salt);
 
-  user.token = passwordResetToken;
-  user.expiration = Date.now() + 900000;
+  user.token.$push(passwordResetToken);
+  user.token.expiration.$push(Date.now() + 900000);
   await user.save();
+  console.log("token id test: ", user.token, user.token.tokenID); //!Delete this later
   sendMail("dan7.isaac@gmail.com", passwordResetToken);
-  res.send(passwordResetToken);
+  res.render("passwordResetConfirm.ejs");
 });
 
 module.exports = passwordResetRouter;

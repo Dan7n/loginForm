@@ -1,5 +1,20 @@
 const mongoose = require("mongoose");
 
+// const TokenSchema = new mongoose.Schema({
+//   tokenID: {
+//     type: String,
+//     default: "some value",
+//   },
+//   createdAt: {
+//     type: Date,
+//     default: Date.now(),
+//   },
+//   expiration: {
+//     type: Date,
+//     default: Date.now(),
+//   },
+// });
+
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -19,14 +34,19 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
-  token: {
-    type: String,
-  },
-  expiration: {
-    type: Date,
-    default: Date.now(),
-    expires: 3600,
-  },
+  token: [
+    {
+      tokenID: { type: String, default: "some value" },
+      createdAt: {
+        type: Date,
+        default: Date.now(),
+      },
+      expiration: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", UserSchema);

@@ -119,3 +119,14 @@ body {
             margin-bottom: 3rem;
         }
     }
+
+    .reset-passwor {
+        @include center;
+        flex-direction: column;
+        width: 100%;
+        h1, p {
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+        }
+    }

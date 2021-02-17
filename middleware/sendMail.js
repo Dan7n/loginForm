@@ -20,7 +20,7 @@ function sendMail(userEmail, token) {
     subject: "Password Reset",
     html: `<h1>Rest your password</h1>
     <p>Please click on the link below to reset your password</p>
-    <a href="http://localhost:${process.env.PORT}/${token}">Click me!</a>`,
+    <a href="http://localhost:${process.env.PORT}/change-password/${token}">Click me!</a>`,
   };
 
   transport.sendMail(msg, function (err, successMsg) {
